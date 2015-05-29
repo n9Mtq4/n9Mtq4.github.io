@@ -39,10 +39,26 @@ function removeCorsNAV(str) {
     return str.replace("Access-Control-Allow-Origin: *", "");
 }
 
+function getParameterByName(name) {
+    /*https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript*/
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function contains(str, str1) {
+    return str.indexOf(str1) > -1;
+}
+
 function getCurrentPage() {
     var url = window.location.href;
-    var dirList = url.split("/");
-    var end = dirList[dirList.length - 1];
-    var page = end.split(".")[0];
-    return page;
+    if (contains(url, "?") && contains(url, "page=")) {
+        return getParameterByName("page");
+    }else {
+        var dirList = url.split("/");
+        var end = dirList[dirList.length - 1];
+        var page = end.split(".")[0];
+        return page;
+    }
 }
