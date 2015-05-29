@@ -150,7 +150,7 @@ var search = {
     },
     ajaxit: function() {
         $.ajax({
-            url: "http://n9mtq4.com/js/searchDatabase.js",
+            url: "http://n9mtq4.com/js/searchDatabase.n9m",
             data: {
             },
             success: function( data ) {
@@ -172,6 +172,7 @@ var search = {
 
 $(document).ready(function() {
     /* Back button support */
+    search.ajaxit();
     if (($("#" + search.searchInputFieldID).val()).trim() != "") {
         search.ajaxit();
         search.startSearch();
