@@ -154,8 +154,9 @@ var search = {
             data: {
             },
             success: function( data ) {
+                //TODO: console.log
                 console.log(data);
-                search.searchDatabase = eval(removeCors(data));
+                eval(removeCors(data));
             }
         });
         $.ajax({
@@ -163,6 +164,7 @@ var search = {
             data: {
             },
             success: function(data) {
+                //TODO: console.log
                 console.log(data);
                 search.writeTemplate = removeCors(data);
             }
@@ -171,11 +173,7 @@ var search = {
 };
 
 function removeCors(str) {
-    /*https://stackoverflow.com/questions/2528076/delete-a-line-of-text-in-javascript*/
-    var lines = str.split('],');
-    lines.splice(0,1);
-    var newtext = lines.join('],');
-    return newtext;
+    return str.replace("Access-Control-Allow-Origin: *", "");
 }
 
 $(document).ready(function() {
