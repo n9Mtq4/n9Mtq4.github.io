@@ -4,6 +4,7 @@
 
 $(document).ready(function() {
     var page = getCurrentPage();
+    if (page.trim() == "") page = "index";
     loadContents("html/" + page + "c.html")
 });
 
