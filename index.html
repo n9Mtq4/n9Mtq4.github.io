@@ -3,11 +3,27 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>n9Mtq4</title>
+    <meta name="theme-color" content="#03A9F4" />
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="webcomponentsjs/webcomponents.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/material.js"></script>
+    <script src="js/navigator.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="import" href="polymer/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="polymer/paper-header-panel/paper-header-panel.html">
 </head>
-<body>
-<div id="searchResultSpace"></div>
-<input id="field" type="text">
+<body class="randombackgroundcolour">
+
+<paper-header-panel id="header" class="flex hstretch float">
+    <paper-toolbar id="toolbar">
+        <div title>n9Mtq4</div>
+    </paper-toolbar>
+    <div class="hide" id="searchResultSpace"><!--loads through search.js--></div>
+    <div class="contents"><!--loads through navigator.js--></div>
+</paper-header-panel>
+
 </body>
 </html>

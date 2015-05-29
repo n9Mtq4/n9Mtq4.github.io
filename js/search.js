@@ -150,7 +150,7 @@ var search = {
     },
     ajaxit: function() {
         $.ajax({
-            url: "http://n9mtq4.com/js/searchDatabase.txt",
+            url: "http://n9mtq4.com/js/searchDatabase.js",
             data: {
             },
             success: function( data ) {
@@ -178,6 +178,7 @@ function removeCors(str) {
 
 $(document).ready(function() {
     /* Back button support */
+    return;
     search.ajaxit();
     if (($("#" + search.searchInputFieldID).val()).trim() != "") {
         search.ajaxit();

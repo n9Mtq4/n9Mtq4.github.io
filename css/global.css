@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+}
+
+#toolbar {
+    /*background-image: url("../img/materialbackground.jpg");*/
+    background-color: #0000bd;
+}
+
+.hstretch {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100% !important;
+}
+
+.float {
+    display: inline-block;
+    position: fixed;
+}
+
+.hide {
+    display: none;
+}
+
+.contents {
+    padding: 40px;
+}
+
+#header {
+    position: fixed;
+    z-index: 100 !important;
+    margin-bottom: 100px !important;
+}

@@ -1,4 +1,6 @@
+/*
 Access-Control-Allow-Origin: *
+*/
 
 search.searchDatabase = ["Nothing matches the search results", "congratz, you found nothing", "null", "javascript:alert('nothing to click');"],
     ["Home", "Index page for n9mtq4.com", "home, index, n9mtq4", "index.html"],
