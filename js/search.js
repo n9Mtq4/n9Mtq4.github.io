@@ -40,9 +40,9 @@ var search = {
             /*parsing input*/
             var mainIndexLocation = inputArray[count01][0];
             var placement = inputArray[count01][1];
-            var title = searchDatabase[mainIndexLocation][0];
-            var desc = searchDatabase[mainIndexLocation][1];
-            var href = searchDatabase[mainIndexLocation][3];
+            var title = search.searchDatabase[mainIndexLocation][0];
+            var desc = search.searchDatabase[mainIndexLocation][1];
+            var href = search.searchDatabase[mainIndexLocation][3];
             var searchResultHtml = search.writeTemplate;
             searchResultHtml = searchResultHtml.replace("$TITLE", title);
             searchResultHtml = searchResultHtml.replace("$DESC", desc);
@@ -57,9 +57,9 @@ var search = {
         /* algorithm for searching the array */
         var count = 0;
         var intArray = new Array();
-        while (count < searchDatabase.length) {
+        while (count < search.searchDatabase.length) {
             var keywordCount = 0;
-            var comp = searchDatabase[count][2].split(", ");
+            var comp = search.searchDatabase[count][2].split(", ");
             var keyWords = keyWord.split(" ");
             count1 = 0
             while (count1 < comp.length) {
@@ -155,7 +155,7 @@ var search = {
             },
             success: function( data ) {
                 console.log(data);
-                search.searchDatabase = eval(data);
+                search.searchDatabase = eval(removeCors(data));
             }
         });
         $.ajax({
@@ -164,11 +164,19 @@ var search = {
             },
             success: function(data) {
                 console.log(data);
-                search.writeTemplate = data;
+                search.writeTemplate = removeCors(data);
             }
         })
     }
 };
+
+function removeCors(str) {
+    /*https://stackoverflow.com/questions/2528076/delete-a-line-of-text-in-javascript*/
+    var lines = str.split('],');
+    lines.splice(0,1);
+    var newtext = lines.join('],');
+    return newtext;
+}
 
 $(document).ready(function() {
     /* Back button support */
