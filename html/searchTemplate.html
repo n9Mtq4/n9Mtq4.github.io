@@ -1,11 +1,12 @@
 Access-Control-Allow-Origin: *
 
-<a class="searchcontainer" href="$HREF">
-    <paper-material elevation="3" class="searchcontainer">
-        <paper-ripple>
-            <a href="$HREF" class="searchLink">
-                $TITLE
-            </a>
-        </paper-ripple>
-    </paper-material>
-</a>
+<paper-material class="searchShadowCard">
+    <div elevation="6" class="">
+        <a href="$HREF" class="searchLink">
+            <div class="title">$TITLE</div>
+        </a>
+        <div class="description">
+            $DESC
+        </div>
+    </div>
+</paper-material>

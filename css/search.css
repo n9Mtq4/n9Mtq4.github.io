@@ -1,16 +1,5 @@
 /*css file for search*/
 
-#searchResultSpace {
-    /*padding-top: 100px;*/
-    /*padding-top: 10px;*/
-    /*padding-bottom: 20px;*/
-    position: fixed;
-    background-color: lightgray;
-    z-index: 100;
-    margin-left: 10% !important;
-    width: 80% !important;
-}
-
 .link {
     padding-bottom: 0px;
 }
@@ -51,9 +40,10 @@ ol.resultList {
     font-family: arial, sans-serif;
     font-size: 1em;
     color: rgb(255, 255, 255);
-    background-color: #03A9F4;
+    /*background-color: #03A9F4;*/
+    background-color: #0000bd;
     /*background: #fff;*/
-    background: #03A9F4;
+    /*background: #03A9F4;*/
     border: solid 0px #d9d9d9;
     /*border-top: solid 1px #c0c0c0;*/
     /*border-right: none;*/
@@ -78,32 +68,6 @@ ol.resultList {
     outline: 0;
 }
 
-/* Style the "X" text button next to the search input field */
-#delete {
-    position: relative;
-    float: left;
-    width: 16px;
-    height: 25px;
-    line-height: 27px;
-    margin-right: 15px;
-    padding: 0 10px 0 10px;
-    font-family: "Lucida Sans", "Lucida Sans Unicode",sans-serif;
-    font-size: 22px;
-    background: #fff;
-    border: solid 1px #d9d9d9;
-    border-top: solid 1px #c0c0c0;
-    border-left: none;
-}
-/* Set default state of "X" and hide it */
-#delete #x {
-    color: #A1B9ED;
-    cursor: pointer;
-}
-/* Set the hover state of "X" */
-#delete #x:hover {
-    color:#36c;
-}
-
 #submit {
     margin-top: -2px;
 }
@@ -125,35 +89,49 @@ ol.resultList {
     margin-bottom: 100px !important;
 }
 
-.searchLink {
-    z-index: 99;
-    color: purple;
+/*
+SEARCH RESULT STYLES
+*/
+
+.searchCard {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20px;
+    width: 90%;
+    overflow: hidden;
+    display: inline-block;
+    background-color: transparent;
 }
 
-.searchcontainer {
-    margin-bottom: 15px;
+.searchShadowCard {
     margin-left: 10%;
     margin-right: 10%;
-    width: 80% !important;
-    height: 130px !important;
-    overflow: hidden;
-    background-color: #ffffff;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 6px;
+    background-color: white;
 }
 
-.searchcard {
-    margin-bottom: 15px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80% !important;
-    height: 130px !important;
-    overflow: hidden;
-    background-color: #ffffff;
+#searchResultSpace {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .description {
     color: black;
+    overflow: visible;
 }
 
-.firstdive {
-    padding-left: 10px;
+.searchLink {
+    z-index: 99;
+    color: blue;
 }
+
+
+
+
+
+

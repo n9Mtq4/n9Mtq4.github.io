@@ -23,6 +23,10 @@ function requires() {
     }
 }
 
+function setTitle(str) {
+    document.title = str;
+}
+
 function loadContents(url) {
     $.ajax({
         url: url,
