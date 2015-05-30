@@ -150,7 +150,7 @@ var search = {
     },
     ajaxit: function() {
         $.ajax({
-            url: "http://n9mtq4.com/js/searchDatabase.js",
+            url: "http://n9mtq4.com/js/searchDatabase.jsp",
             data: {
             },
             success: function( data ) {
