@@ -23,6 +23,10 @@ function requires() {
     }
 }
 
+function goto(str) {
+    window.location.search = jQuery.query.set("page", str);
+}
+
 function setTitle(str) {
     document.title = str;
 }

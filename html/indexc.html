@@ -1,7 +1,13 @@
 <script type="text/javascript">
-    requires("paper-button");
+    requires("paper-button", "paper-material");
 </script>
 
-<paper-button raised>
-    Things are working!
-</paper-button>
+<div id="indexContents">
+    <paper-material elevation="3" class="card">
+        <a href="javascript:goto('about')" class="buttonLink">
+            <paper-button class="coloredButton" raised>
+                About this website
+            </paper-button>
+        </a>
+    </paper-material>
+</div>
