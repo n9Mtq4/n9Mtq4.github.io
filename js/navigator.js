@@ -39,6 +39,9 @@ function loadContents(url) {
         success: function(data) {
             var html = removeCorsNAV(data);
             $(".contents").html(html);
+        },
+        error: function(data) {
+            goto("404");
         }
     });
 }

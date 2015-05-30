@@ -1,6 +1,3 @@
-/**
- * Created by will on 5/29/15.
- */
 /* (c) Copyright 2013-2015 Will (n9Mtq4) Bresnahan */
 /* Will Bresnahan's javascript search library */
 /* Adapted for use at n9Mtq4.com */
@@ -43,6 +40,9 @@ var search = {
             var title = searchDatabase[mainIndexLocation][0];
             var desc = searchDatabase[mainIndexLocation][1];
             var href = searchDatabase[mainIndexLocation][3];
+            if (containsStr(href, "g:")) {
+                href = href.replaceAll("g:", "javascript:goto('") + "');"
+            }
             var searchResultHtml = search.writeTemplate;
             searchResultHtml = searchResultHtml.replaceAll("$TITLE", title);
             searchResultHtml = searchResultHtml.replaceAll("$DESC", desc);
@@ -205,6 +205,9 @@ var search = {
 
 function removeCors(str) {
     return str.replace("Access-Control-Allow-Origin: *", "");
+}
+function containsStr(str, str1) {
+    return str.indexOf(str1) > -1;
 }
 
 $(document).ready(function() {

@@ -5,18 +5,22 @@
     <title>n9Mtq4</title>
     <meta name="theme-color" content="#03A9F4" />
     <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/jquery.query-object.js"></script>
     <script src="webcomponentsjs/webcomponents.js"></script>
     <script src="js/search.js"></script>
     <script src="js/material.js"></script>
     <script src="js/navigator.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body class="randombackgroundcolour">
 
-<paper-header-panel id="header" class="flex hstretch float">
+<script>
+    requires("iron-icons", "paper-toolbar", "paper-header-panel", "paper-icon-button")
+</script>
+
+<paper-header-panel id="header" class="flex hstretch">
     <paper-toolbar id="toolbar">
         <div title><a id="home" href="//n9mtq4.com">n9Mtq4</a></div>
         <input id="field" placeholder="Search" name="field" type="text" />
@@ -26,10 +30,6 @@
     <div class="hide" id="searchResultSpace"><!--loads through search.js--></div>
     <div class="contents"><!--loads through navigator.js--></div>
 </paper-header-panel>
-
-<script>
-    requires( "iron-icons", "paper-toolbar", "paper-header-panel", "paper-icon-button")
-</script>
 
 </body>
 </html>
