@@ -14,12 +14,17 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="import" href="polymer/paper-toolbar/paper-toolbar.html">
     <link rel="import" href="polymer/paper-header-panel/paper-header-panel.html">
+    <link rel="import" href="polymer/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="polymer/iron-icons/iron-icons.html">
 </head>
 <body class="randombackgroundcolour">
 
 <paper-header-panel id="header" class="flex hstretch float">
     <paper-toolbar id="toolbar">
         <div title><a id="home" href="//n9mtq4.com">n9Mtq4</a></div>
+        <input id="field" placeholder="Search" name="field" type="text" />
+        <paper-icon-button id="clearbutton" icon="clear"></paper-icon-button>
+        <paper-icon-button id="searchbutton" icon="search"></paper-icon-button>
     </paper-toolbar>
     <div class="hide" id="searchResultSpace"><!--loads through search.js--></div>
     <div class="contents"><!--loads through navigator.js--></div>

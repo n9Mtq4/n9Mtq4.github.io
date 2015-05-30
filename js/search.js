@@ -14,7 +14,6 @@ var search = {
     searchInputFieldID: 'field',
     outputDivID: 'searchResultSpace',
     writeTemplate: '',
-    searchDatabase: [],
     startSearch: function() {
         var inputField = document.getElementById(search.searchInputFieldID);
         if (inputField.value.trim() == "") {
@@ -29,6 +28,7 @@ var search = {
         search.clearResults();
     },
     clearResults: function() {
+        $("#" + search.outputDivID).fadeOut();
         document.getElementById(search.outputDivID).innerHTML = '';
     },
     writeResult: function(inputArray) {
@@ -40,28 +40,29 @@ var search = {
             /*parsing input*/
             var mainIndexLocation = inputArray[count01][0];
             var placement = inputArray[count01][1];
-            var title = search.searchDatabase[mainIndexLocation][0];
-            var desc = search.searchDatabase[mainIndexLocation][1];
-            var href = search.searchDatabase[mainIndexLocation][3];
+            var title = searchDatabase[mainIndexLocation][0];
+            var desc = searchDatabase[mainIndexLocation][1];
+            var href = searchDatabase[mainIndexLocation][3];
             var searchResultHtml = search.writeTemplate;
-            searchResultHtml = searchResultHtml.replace("$TITLE", title);
-            searchResultHtml = searchResultHtml.replace("$DESC", desc);
-            searchResultHtml = searchResultHtml.replace("$HREF", href);
+            searchResultHtml = searchResultHtml.replaceAll("$TITLE", title);
+            searchResultHtml = searchResultHtml.replaceAll("$DESC", desc);
+            searchResultHtml = searchResultHtml.replaceAll("$HREF", href);
             htmlOutput = htmlOutput.concat(searchResultHtml);
             count01++;
         }
         htmlOutput.concat(search.htmlOutputSuffix);
         space.innerHTML = htmlOutput;
+        search.showResults();
     },
     searchAlg: function(keyWord) {
         /* algorithm for searching the array */
         var count = 0;
         var intArray = new Array();
-        while (count < search.searchDatabase.length) {
+        while (count < searchDatabase.length) {
             var keywordCount = 0;
-            var comp = search.searchDatabase[count][2].split(", ");
+            var comp = searchDatabase[count][2].split(", ");
             var keyWords = keyWord.split(" ");
-            count1 = 0
+            count1 = 0;
             while (count1 < comp.length) {
                 /*comp[count1];*/
                 var count2 = 0;
@@ -114,6 +115,9 @@ var search = {
         }
         return newArray;
     },
+    showResults: function() {
+        $("#" + search.outputDivID).fadeIn();
+    },
     openSearch: function() {
         $('#field').fadeIn(500);
         $('#clearbutton').fadeIn(500);
@@ -149,24 +153,51 @@ var search = {
         }
     },
     ajaxit: function() {
+        search.firstTime = false;
         $.ajax({
-            url: "http://n9mtq4.com/js/searchDatabase.jsp",
-            data: {
-            },
-            success: function( data ) {
-                //TODO: console.log
-                console.log(data);
-                eval(removeCors(data));
-            }
-        });
-        $.ajax({
-            url: "http://n9mtq4.com/html/searchTemplate.html",
+            //TODO: relative link vs global link
+            //url: "http://n9mtq4.com/js/searchDatabase.jsp",
+            url: "js/searchDatabase.txt",
             data: {
             },
             success: function(data) {
                 //TODO: console.log
-                console.log(data);
+                console.log("Loaded search database");
+                eval("searchDatabase = " + removeCors(data));
+            },
+            error: function(data) {
+                /*try again*/
+                search.ajaxit();
+            }
+        });
+        $.ajax({
+            //TODO: relative link vs global link
+            url: "html/searchTemplate.html",
+            data: {
+            },
+            success: function(data) {
+                //TODO: console.log
+                console.log("Loaded search template");
                 search.writeTemplate = removeCors(data);
+            },
+            error: function(data) {
+                /*try again*/
+                search.ajaxit();
+            }
+        });
+        $.ajax({
+            //TODO: relative link vs global link
+            url: "js/searchRequirements.js",
+            data: {
+            },
+            success: function(data) {
+                //TODO: console.log
+                console.log("Loaded search template requirements");
+                eval(removeCors(data));
+            },
+            error: function(data) {
+                /*try again*/
+                search.ajaxit();
             }
         })
     }
@@ -178,18 +209,32 @@ function removeCors(str) {
 
 $(document).ready(function() {
     /* Back button support */
-    return;
-    search.ajaxit();
-    if (($("#" + search.searchInputFieldID).val()).trim() != "") {
+    /*return;*/
+    String.prototype.replaceAll = function(search, replace) {
+        if (replace === undefined) {
+            return this.toString();
+        }
+        return this.split(search).join(replace);
+    };
+    
+    $('#field').hide();
+    $('#clearbutton').hide();
+    if (($("#field").val()).trim() != "") {
         search.ajaxit();
-        search.startSearch();
-        search.openSearch();
+        setTimeout(function() {
+            search.startSearch();
+            search.openSearch();
+        }, 100);
+
     }
     
-    $("#" + search.searchInputFieldID).keyup(function(e) {
+    $('#searchbutton').click(search.searchButton);
+    $('#clearbutton').click(search.clearBoth);
+
+    $("#field").keyup(function (e) {
         if (e.keyCode == 13) {
             search.startSearch();
         }
-    })
+    });
     
 });
