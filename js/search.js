@@ -1,6 +1,6 @@
 /* (c) Copyright 2013-2015 Will (n9Mtq4) Bresnahan */
 /* Will Bresnahan's javascript search library */
-/* Adapted for use at n9Mtq4.com */
+/* Adapted for use at n9Mtq4.com*/
 
 var search = {
     htmlOutput: '',
