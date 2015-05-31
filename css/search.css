@@ -93,25 +93,6 @@ ol.resultList {
 SEARCH RESULT STYLES
 */
 
-.searchCard {
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 20px;
-    width: 90%;
-    overflow: hidden;
-    display: inline-block;
-    background-color: transparent;
-}
-
-.searchShadowCard {
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin-top: 6px;
-    background-color: white;
-}
-
 #searchResultSpace {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
@@ -119,18 +100,6 @@ SEARCH RESULT STYLES
     width: 100% !important;
     height: 100% !important;
 }
-
-.description {
-    color: black;
-    overflow: visible;
-}
-
-.searchLink {
-    z-index: 99;
-    color: blue;
-}
-
-
 
 
 

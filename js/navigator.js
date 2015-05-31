@@ -8,8 +8,8 @@ $(document).ready(function() {
     loadContents("html/" + page + "c.html")
 });
 
-function importElement(element) {
-    var url = "polymer/" + element + "/" + element + ".html";
+function importElement(element, folder) {
+    var url = folder + "/" + element + "/" + element + ".html";
     var link = document.createElement('link');
     link.setAttribute('rel', 'import');
     link.setAttribute('href', url);
@@ -19,7 +19,14 @@ function importElement(element) {
 
 function requires() {
     for (var i = 0; i < arguments.length; i++) {
-        importElement(arguments[i]);
+        importElement(arguments[i], "components");
+    }
+}
+
+function requiresc() {
+    for (var i = 0; i < arguments.length; i++) {
+        var args = arguments[i].split("/");
+        importElement(args[1], args[0]);
     }
 }
 

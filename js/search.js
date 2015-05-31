@@ -154,6 +154,8 @@ var search = {
     },
     ajaxit: function() {
         search.firstTime = false;
+        //TODO: dependencies
+        requires('n9mtq4-searchcard');
         $.ajax({
             //TODO: relative link vs global link
             //url: "http://n9mtq4.com/js/searchDatabase.jsp",
