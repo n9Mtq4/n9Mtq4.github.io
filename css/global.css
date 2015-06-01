@@ -20,6 +20,11 @@ body {
     width: 100% !important;
 }
 
+.thumbnail {
+    width: 16px;
+    height: auto;
+}
+
 .card {
     padding: 25px 16px;
     background-color: snow;
