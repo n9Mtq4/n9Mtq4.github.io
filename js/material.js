@@ -2,25 +2,25 @@
  * Created by will on 5/29/15.
  */
 var colours = [
-    'F44336',
-    'E91E63',
-    '9C27B0',
-    '673AB7',
-    '3F51B5',
-    '2196F3',
-    '03A9F4',
-    '00BCD4',
-    '009688',
-    '4CAF50',
-    '8BC34A',
-    'CDDC39',
-    'FFEB3B',
-    'FFC107',
-    'FF9800',
-    'FF5722',
-    '795548',
-    '9E9E9E',
-    '607D8B'
+    'F44336', /*0*/
+    'E91E63', /*1*/
+    '9C27B0', /*2*/
+    '673AB7', /*3*/
+    '3F51B5', /*4*/
+    '2196F3', /*5*/
+    '03A9F4', /*6*/
+    '00BCD4', /*7*/
+    '009688', /*8*/
+    '4CAF50', /*9*/
+    '8BC34A', /*10*/
+    'CDDC39', /*11*/
+    'FFEB3B', /*12*/
+    'FFC107', /*13*/
+    'FF9800', /*14*/
+    'FF5722', /*15*/
+    '795548', /*16*/
+    '9E9E9E', /*17*/
+    '607D8B'  /*18*/
 ];
 
 function getRandomColour() {
@@ -61,6 +61,11 @@ function materialUpdate() {
     var a = $('.randombackgroundcolour');
     for (index = 0; index < a.length; ++index) {
         $(a[index]).css('background-color', getRandomColour());
+    }
+    var index = 0;
+    var a = $('.givematerialcolour');
+    for (index = 0; index < a.length; ++index) {
+        $(a[index]).css('background-color', colours[parseInt($(a[index]).attr('colour'))]);
     }
     delete a;
     delete index;
