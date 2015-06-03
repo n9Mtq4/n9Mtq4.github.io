@@ -12,6 +12,16 @@ body {
     text-decoration: none;
 }
 
+.banner {
+    z-index: 1000;
+    font-size: xx-large;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: white;
+    padding-bottom: 100%;
+}
+
 .hstretch {
     margin-left: 0px;
     margin-right: 0px;
