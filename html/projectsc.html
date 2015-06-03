@@ -1,0 +1,178 @@
+<script>
+    requires("paper-material", "n9mtq4-linkbutton", "n9mtq4-spoiler");
+</script>
+
+<!--http://hilite.me/-->
+<div id="projectsContents">
+    
+    <paper-material elevation="4" class="card padding" id="logwindow">
+        <h1>LogWindow</h1>
+        <h3>This is a java library for debugging or handling sending events globally through the program or system.
+        You can easily create a subclass of BaseConsole, create a custom gui/input interface for it, or make your own
+        modules that can handle input received by it.</h3>
+        <n9mtq4-linkbutton href="//github.com/n9mtq4/logwindow/" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+        <n9mtq4-linkbutton href="javadocs/logwindow" colour="lightgray">
+            JavaDocs
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    <paper-material elevation="4" class="card padding" id="reflectionhelper">
+        <h1>ReflectionHelper</h1>
+        <h3>This is a java library that simplifies reflection calls to one line.</h3>
+        <n9mtq4-linkbutton href="//github.com/n9mtq4/reflectionhelper" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+        <n9mtq4-linkbutton href="//github.com/n9Mtq4/ReflectionHelper/tree/master/examples" colour="lightgray">
+            Example Code
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    <paper-material elevation="4" class="card padding" id="extendablestring">
+        <h1>Extendable String</h1>
+        <h3>This library makes a new String class that isn't final, so you can override it!</h3>
+        <n9mtq4-spoiler name="Toggle Example Code" colour="deepskyblue">
+            <div class="source">
+            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">com.n9mtq4.extend.EString</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">MyString</span> <span style="color: #008800; font-weight: bold">extends</span> EString <span style="color: #333333">{</span>
+
+	<span style="color: #888888">//swaps toUpperCase and toLowerCase</span>
+	<span style="color: #555555; font-weight: bold">@Override</span>
+	<span style="color: #008800; font-weight: bold">public</span> EString <span style="color: #0066BB; font-weight: bold">toUpperCase</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">EString</span><span style="color: #333333">(</span>original<span style="color: #333333">.</span><span style="color: #0000CC">toLowerCase</span><span style="color: #333333">());</span>
+	<span style="color: #333333">}</span>
+
+	<span style="color: #555555; font-weight: bold">@Override</span>
+	<span style="color: #008800; font-weight: bold">public</span> EString <span style="color: #0066BB; font-weight: bold">toLowerCase</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">EString</span><span style="color: #333333">(</span>original<span style="color: #333333">.</span><span style="color: #0000CC">toUpperCase</span><span style="color: #333333">());</span>
+	<span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
+</pre></td></tr></table></div>
+
+        </div>
+        </n9mtq4-spoiler>
+        <div class="padding"></div>
+        <n9mtq4-linkbutton href="//github.com/n9mtq4/extendable-string" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+        <n9mtq4-linkbutton href="//docs.oracle.com/javase/7/docs/api/java/lang/String.html" colour="lightgray">
+            JavaDocs
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    <paper-material elevation="4" class="card padding" id="notificationlib">
+        <h1>Mac OSX Notification Library</h1>
+        <h3>A java library to allow native Mac OSX notifcations to be displayed.</h3>
+        <n9mtq4-spoiler name="Toggle Example Code" colour="deepskyblue">
+            <div class="source"><!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">NotificationDemo</span> <span style="color: #333333">{</span>
+
+	<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+		Notification n <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Notification<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Title&quot;</span><span style="color: #333333">,</span> <span style="background-color: #fff0f0">&quot;Text&quot;</span><span style="color: #333333">);</span>
+		n<span style="color: #333333">.</span><span style="color: #0000CC">setSoundName</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;default&quot;</span><span style="color: #333333">);</span>
+		n<span style="color: #333333">.</span><span style="color: #0000CC">display</span><span style="color: #333333">();</span>
+
+	<span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
+</pre></td></tr></table></div>
+            </div>
+        </n9mtq4-spoiler>
+        <div class="padding"></div>
+        <n9mtq4-linkbutton href="//github.com/n9Mtq4/MacOSX-Notification-Library-Java" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    <paper-material elevation="4" class="card padding" id="androidfiletransfer">
+        <h1>Android File Transfer</h1>
+        <h3></h3>
+        <n9mtq4-spoiler name="Toggle Screenshots" colour="deepskyblue">
+            
+            <n9mtq4-linkbutton href="img/adbfiletransfer1.png" colour="black">
+                <img src="img/adbfiletransfer1.png" class="mediumimage">
+            </n9mtq4-linkbutton>
+            <n9mtq4-linkbutton href="img/adbfiletransfer2.png" colour="black">
+                <img src="img/adbfiletransfer2.png" class="mediumimage">
+            </n9mtq4-linkbutton>
+            
+        </n9mtq4-spoiler>
+        
+        <div class="padding"></div>
+        <n9mtq4-linkbutton href="//github.com/n9mtq4/adbfiletransfer" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    <paper-material elevation="4" class="card padding" id="promptuntil">
+        <h1>Prompt Until</h1>
+        <h3>Prompt Until is a tiny python library that does exactly what it name says.
+            It is basically input(), but it takes a lambda to tell if the entered value is valid.
+            If the entered value is valid it will return it, otherwise,
+            it will ask the user to enter another input.</h3>
+        <n9mtq4-spoiler name="Toggle Example Code" colour="deepskyblue">
+            <div class="source">
+                <!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">prompter</span>
+
+<span style="color: #408080; font-style: italic"># prompt the user until they enter an integer</span>
+integer <span style="color: #666666">=</span> prompter<span style="color: #666666">.</span>prompt_until(
+    <span style="color: #BA2121">&quot;Enter an int: &quot;</span>,  <span style="color: #408080; font-style: italic"># passed to input()</span>
+    prompter<span style="color: #666666">.</span>is_int,  <span style="color: #408080; font-style: italic"># the (lambda) function that evaluates the entered info</span>
+    fail_msg<span style="color: #666666">=</span><span style="color: #BA2121">&quot;You didn&#39;t enter an integer! Please try again&quot;</span>,  <span style="color: #408080; font-style: italic"># printed when not an int</span>
+    success_action<span style="color: #666666">=</span><span style="color: #008000">int</span>)  <span style="color: #408080; font-style: italic"># function to run on success</span>
+</pre></td></tr></table></div>
+
+            </div>
+        </n9mtq4-spoiler>
+        <div class="padding"></div>
+        <n9mtq4-linkbutton href="//github.com/n9mtq4/prompt-until" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    <paper-material elevation="4" class="card padding" id="jamwifi">
+        <h1>JamWifi</h1>
+        <h3>An app that can block wifi connections, even when not on the attacked network.</h3>
+        <n9mtq4-linkbutton href="//github.com/n9mtq4/jamwifi" colour="lightgray">
+            GitHub Page
+        </n9mtq4-linkbutton>
+    </paper-material>
+    
+    
+    
+</div>

@@ -63,3 +63,8 @@ body {
     z-index: 100 !important;
     margin-bottom: 100px !important;
 }
+
+.mediumimage {
+    height: 200px;
+    width: auto;
+}
