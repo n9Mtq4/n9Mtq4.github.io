@@ -1,0 +1,83 @@
+<script>
+    requires("paper-material", 'n9mtq4-linkbutton', 'n9mtq4-spoiler');
+</script>
+
+<paper-material elevation="4" class="card">
+    <h1>Interesting Things to look at first</h1>
+    <n9mtq4-linkbutton href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet" colour="lightgray">
+        XSS filter evasion
+    </n9mtq4-linkbutton>
+    <n9mtq4-linkbutton href="https://www.youtube.com/watch?v=L5l9lSnNMxg" colour="lightgray">
+        Tom Scott: Computerphile
+    </n9mtq4-linkbutton>
+</paper-material>
+<div class="padding"></div>
+
+<paper-material elevation="4" class="card">
+    <h1>XSS Example</h1>
+    <h3>When text is entered, then the enter key is pressed, it appends whatever you typed into this page.
+    This is fine, the issue is when you enter an html tag. Try entering text between a bold or italics tag.
+    If you want to really see what can happen, enter stuff between a script tag.</h3>
+    <input type="text" placeholder="Enter Text Here" id="inputtext1" style="width: 60%;">
+    <div class="padding"></div>
+    <div id="result1"></div>
+</paper-material>
+<div class="padding"></div>
+
+<paper-material elevation="4" class="card">
+    <h1>Simple XSS Prevention</h1>
+    <h3>Here I try a simple check of replacing a &lt; with &amp;lt and &gt; with &amp;gt.
+        This surprisingly blocks all of the bypasses in the XSS filter evasion cheat sheet
+        (at the top of the page). This is in part of there being no server sided components,
+        and most of the examples there contain a &lt; or a &gt;.</h3>
+    <n9mtq4-spoiler name="Show Code Used" colour="deepskyblue">
+        <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">String.</span><span style="color: #a6e22e">prototype</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">replaceAll</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">search</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">replace</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">replace</span> <span style="color: #f92672">===</span> <span style="color: #66d9ef">undefined</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">toString</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">split</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">search</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">join</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">replace</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">simple1</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">input</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #a6e22e">input</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">input</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">replaceAll</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;&lt;&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&amp;lt;&#39;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #a6e22e">input</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">input</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">replaceAll</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;&gt;&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&amp;gt;&#39;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">input</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+</pre></td></tr></table></div>
+
+    </n9mtq4-spoiler>
+    <div class="padding"></div>
+    <input type="text" placeholder="Enter Text Here" id="inputtext2" style="width: 60%;">
+    <div class="padding"></div>
+    <div id="result2"></div>
+</paper-material>
+
+<script>
+    $("#inputtext1").keypress(function(e) {
+        if (e.keyCode == 13) {
+            $("#result1").append($("#inputtext1").val());
+        }
+    });
+    $("#inputtext2").keypress(function(e) {
+        if (e.keyCode == 13) {
+            $("#result2").append(simple1($("#inputtext2").val()));
+        }
+    });
+    
+    function simple1(input) {
+        input = input.replaceAll('<', '&lt;');
+        input = input.replaceAll('>', '&gt;');
+        return input;
+    }
+</script>
