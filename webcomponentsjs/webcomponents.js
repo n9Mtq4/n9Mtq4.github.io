@@ -4963,7 +4963,7 @@ if (WebComponents.flags.shadow) {
 
        case "scheme data":
         if ("?" == c) {
-          query = "?";
+          var query = "?"; //TODO: i changed this line
           state = "query";
         } else if ("#" == c) {
           this._fragment = "#";
