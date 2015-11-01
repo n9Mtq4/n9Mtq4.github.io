@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-material/paper-material.html">
-
+<link rel="import" href="../paper-ripple/paper-ripple.html">
 
 <dom-module id="n9mtq4-searchcard">
     
@@ -20,6 +20,7 @@
         .searchLink {
             z-index: 99;
             color: blue;
+            text-decoration: none;
         }
         .url {
             font-size: small;
@@ -39,13 +40,13 @@
     </style>
     
     <template>
-        <paper-material elevation="4" class="searchShadowCard">
-            <a href="{{href}}" title="{{desc}}" class="searchLink">
+        <a href="{{href}}" title="{{desc}}" class="searchLink">
+            <paper-material elevation="4" class="searchShadowCard">
                 <div class="title">{{title}}</div>
-            </a>
-            <div class="url">{{href}}</div>
-            <div class="description">{{desc}}</div>
-        </paper-material>
+                <div class="url">{{href}}</div>
+                <div class="description">{{desc}}</div>
+            </paper-material>
+        </a>
     </template>
     
 </dom-module>
