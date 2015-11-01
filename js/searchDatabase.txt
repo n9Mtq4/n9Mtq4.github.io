@@ -7,7 +7,7 @@ Access-Control-Allow-Origin: *
 ["About", "About n9Mtq4", "about, n9mtq4", "g:about"],
 ["Contact", "Contact me via email", "email, contact", "javascript:window.open('http://goo.gl/6ZtwXU', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300')"],
 ["Github Page", "My github page", "github, code, n9mtq4", "http://github.com/n9mtq4"],
-["Projects", "A list of all my projects", "project, projects, code, programming, program, app, application, jinterpreter, logwindow, adbfiletransfer, reflectionhelper, extendable, string, notification, prompt, until, jam, wifi", "g:projects"],
+["Projects", "A list of all my projects", "project, projects, code, programming, program, app, application, jinterpreter, logwindow, adbfiletransfer, reflectionhelper, extendable, string, notification, prompt, until, jam, wifi, trivia, crack, xposed, exmcl, extend, minecraft, launcher", "g:projects"],
 ["XSS Test", "An example of XSS Vunelabilty", "xss, test, tests, projects, project", "g:xsstest"],
 ["JavaDocs", "A page containing all the javadocs", "javadocs, javadoc, java, doc, projects, info", "g:javadocs"]
 
