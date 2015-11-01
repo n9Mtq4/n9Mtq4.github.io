@@ -17,7 +17,7 @@ var search = {
             inputField.value = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
         }
         var result = search.searchAlg(inputField.value);
-        result = search.sortArray(result);
+        search.sortArray(result);
         search.writeResult(result);
     },
     reset: function() {
@@ -85,35 +85,9 @@ var search = {
         return intArray;
     },
     sortArray: function(array) {
-        /* yea, I know its not efficient or accurate, but it works alright for now */
-        var newArray = [];
-        var defaultSort = 50;
-        while (newArray.length != array.length) {
-            /*loop until newarray is same size as first array*/
-            var start = defaultSort;
-            while (start > 0) {
-                /*until start gets to zero*/
-                var count0000 = 0;
-                while (count0000 < array.length) {
-                    /*for each value in array*/
-                    var intValue = array[count0000][1];
-                    if (start == defaultSort) {
-                        /*first time*/
-                        if (intValue >= start) {
-                            newArray.push(array[count0000]);
-                        }
-                    }else {
-                        /*not first time*/
-                        if (intValue == start) {
-                            newArray.push(array[count0000]);
-                        }
-                    }
-                    count0000++;
-                }
-                start--;
-            }
-        }
-        return newArray;
+        array.sort(function (a, b) {
+            return b[1] - a[1];
+        });
     },
     showResults: function() {
         $("#" + search.outputDivID).fadeIn();
