@@ -2,6 +2,8 @@
  * Created by will on 5/29/15.
  */
 
+var includedUrls = [];
+
 $(document).ready(function() {
     var page = getCurrentPage();
     if (page.trim() == "") page = "index";
@@ -10,6 +12,9 @@ $(document).ready(function() {
 
 function importElement(element, folder) {
     var url = folder + "/" + element + "/" + element + ".html";
+    var included = includedUrls.includes(url);
+    if (included) return;
+    includedUrls.push(url);
     var link = document.createElement('link');
     link.setAttribute('rel', 'import');
     link.setAttribute('href', url);
@@ -48,7 +53,11 @@ function loadContents(url) {
             $(".contents").html(html);
         },
         error: function(data) {
-            goto("404");
+            if (getCurrentPage() == "404") {
+                $("body".html("Sorry, something has gone horribly wrong!"))
+            }else {
+                goto("404");
+            }
         }
     });
 }
@@ -58,7 +67,7 @@ function removeCorsNAV(str) {
 }
 
 function getParameterByName(name) {
-    /*https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript*/
+    //http://stackoverflow.com/a/901144
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
