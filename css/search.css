@@ -99,6 +99,7 @@ SEARCH RESULT STYLES
     z-index: 90;
     width: 100% !important;
     height: 100% !important;
+    overflow: scroll !important;
 }
 
 
