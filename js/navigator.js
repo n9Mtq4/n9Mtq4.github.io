@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 function importElement(element, folder) {
     var url = folder + "/" + element + "/" + element + ".html";
-    var included = includedUrls.includes(url);
+    var included = typeof includedUrls.indexOf(url) === 'undefined';
     if (included) return;
     includedUrls.push(url);
     var link = document.createElement('link');
