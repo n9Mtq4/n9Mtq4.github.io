@@ -68,3 +68,14 @@ body {
     height: 200px;
     width: auto;
 }
+
+.noverticalmargin {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.centertext {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
