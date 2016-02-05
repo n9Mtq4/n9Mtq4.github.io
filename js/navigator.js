@@ -7,7 +7,8 @@ var includedUrls = [];
 $(document).ready(function() {
     var page = getCurrentPage();
     if (page.trim() == "") page = "index";
-    loadContents("html/" + page + "c.html")
+    //loadContents("html/" + page + "c.html", $(".contents"));
+    loadHtmlPage(page, $(".contents"));
 });
 
 function importElement(element, folder) {
@@ -43,14 +44,24 @@ function setTitle(str) {
     document.title = str;
 }
 
-function loadContents(url) {
+function loadHtmlPage(page, location) {
+    page = formatPage(page);
+    loadContents("html/" + page + "c.html", location);
+}
+
+function loadHtmlPageToDefault(page) {
+    loadHtmlPage(page, $(".contents"));
+}
+
+function loadContents(url, location) {
     $.ajax({
         url: url,
         data: {
         },
         success: function(data) {
             var html = removeCorsNAV(data);
-            $(".contents").html(html);
+            //$(".contents").html(html);
+            location.append(html);
         },
         error: function(data) {
             if (getCurrentPage() == "404") {
@@ -76,6 +87,11 @@ function getParameterByName(name) {
 
 function contains(str, str1) {
     return str.indexOf(str1) > -1;
+}
+
+function formatPage(str) {
+    str1 = str.replaceAll(".", "/");
+    return str1;
 }
 
 function getCurrentPage() {
