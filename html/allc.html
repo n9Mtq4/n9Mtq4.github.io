@@ -1,0 +1,17 @@
+
+<div id="loadstuffhere"></div>
+
+<script>
+    loadPage("index");
+    loadPage("about");
+    loadPage("javadocs");
+    loadPage("projects");
+    loadPage("test");
+    loadPage("xsstest");
+    
+    function loadPage(page) {
+        loadHtmlPage(page, $("#loadstuffhere"));
+        $(".contents").append('<div class="padding"></div>');
+    }
+    
+</script>
