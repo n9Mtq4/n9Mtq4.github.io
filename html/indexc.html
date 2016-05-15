@@ -1,11 +1,53 @@
 <script type="text/javascript">
-    requires("paper-button", "paper-material", "n9mtq4-linkbutton");
+    requires("paper-button", "paper-material", "n9mtq4-linkbutton", "n9mtq4-flatlinkbutton");
 </script>
 
 <div id="indexContents">
-    <paper-material elevation="3" class="card">
+    
+    <paper-material elevation="4" id="welcom" class="card">
+        <h1 class="noverticalmargin centertext">Welcome to n9Mtq4.com</h1>
+    </paper-material>
+    <div class="padding"></div>
+<!--    
+    <paper-material elevation="4" id="techdemos" class="card">
+        <h1>Tech Demos</h1>
+        <paper-button elevation="4" class="richbox">
+            <img src="img/android-icon-192x192.png">
+        </paper-button>
+        
+        <n9mtq4-flatlinkbutton>
+            <img src="img/android-icon-192x192.png">
+        </n9mtq4-flatlinkbutton>
+        
+    </paper-material>
+    <div class="padding"></div>
+    
+    <paper-material elevation="4" id="about" class="card deprecated">
         <n9mtq4-linkbutton href="javascript:goto('about')" colour="lightgray">
             About this website
         </n9mtq4-linkbutton>
+        <n9mtq4-linkbutton href="javascript:goto('projects')" colour="lightgray">
+            My Projects
+        </n9mtq4-linkbutton>
     </paper-material>
+    -->
+    <div id="xsstest">
+        <div id="ajaxsstest"></div>
+    </div>
+    <div class="padding"></div>
+    <div id="projects">
+        <div id="ajaxprojects"></div>
+    </div>
+    <div class="padding"></div>
+    <div id="about">
+        <div id="ajaxabout"></div>
+    </div>
+    <div class="padding"></div>
+
 </div>
+
+<script>
+    loadHtmlPage("xsstest", $("#ajaxxsstest"));
+    loadHtmlPage("projects", $("#ajaxprojects"));
+    loadHtmlPage("about", $("#ajaxabout"));
+</script>
